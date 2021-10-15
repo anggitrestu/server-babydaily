@@ -34,6 +34,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       as: 'product_galleries',
     });
+
+    Product.belongsToMany(models.Transaction, {
+      through: 'Transaction_detail',
+      foreignKey: 'product_id',
+      as: 'transactions',
+    });
   };
 
   return Product;
